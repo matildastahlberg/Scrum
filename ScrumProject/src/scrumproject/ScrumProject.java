@@ -10,12 +10,20 @@ package scrumproject;
  * @author tara_
  */
 public class ScrumProject {
+    String name;
+    int age;
+    
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+    }
+    
+    public String getName() {
+        return name;
+    }
     }
     
 }
