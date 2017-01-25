@@ -24,4 +24,16 @@ public class SQLConnection {
         
         }
     }
+    
+        public static Statement getDatabas() throws ClassNotFoundException, SQLException{
+              Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        String connectionURL = "jdbc:sqlserver://localhost:1433;databaseName=MyTestingDB;user=Testing;password=123456";
+        Connection con = DriverManager.getConnection(connectionURL);
+  
+     Statement st = con.createStatement();
+
+        return st;
+    }
 }
+
+
