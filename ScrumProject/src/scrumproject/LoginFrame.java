@@ -92,6 +92,7 @@ setVisible(false);
             closeWindow();
              StartPageFrame fönster = new StartPageFrame();
             fönster.setVisible(true);
+            
         }
         /**else{
             System.out.println("Det finns ingen användare med det inlogget");
