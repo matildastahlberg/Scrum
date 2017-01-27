@@ -74,8 +74,7 @@ public class StartPageFrame extends javax.swing.JFrame {
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         try {
-            
-            ResultSet sqlFraga = SQLConnection.getDatabas().executeQuery("UPDATE Anvandare SET Inloggad = 0");
+            SQLConnection.getDatabas().executeUpdate("UPDATE Anvandare SET Inloggad = 0");
             
             this.dispose();
             LoginFrame s = new LoginFrame();

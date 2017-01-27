@@ -6,6 +6,7 @@
 package scrumproject;
 import java.awt.Color;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import sqlconnection.SQLConnection;
 import sqlconnection.Validator;
 /**
@@ -126,7 +127,7 @@ setVisible(false);
        String LoginString = TxfUserName.getText().toString()+PwfPassword.getText().toString();
        try{
         if(Validator.LoginIsValid(LoginString)){
-            SQLConnection.getDatabas().executeQuery("UPDATE Anvandare SET Inloggad = 1 WHERE AnvandarNamn = '" + TxfUserName.getText().toString() + "'");
+            SQLConnection.getDatabas().executeUpdate("UPDATE Anvandare SET Inloggad = 1 WHERE AnvandarNamn = '" + TxfUserName.getText().toString() + "'");
 
             closeWindow();
              StartPageFrame fönster = new StartPageFrame();
@@ -139,6 +140,7 @@ setVisible(false);
        }
 catch(Exception  ex){
     System.out.println(ex);
+    JOptionPane.showMessageDialog(null,"Login misslyckades.","ALERT",JOptionPane.WARNING_MESSAGE);
 }// TODO add your handling code here:
     }//GEN-LAST:event_BtnLoginActionPerformed
 
