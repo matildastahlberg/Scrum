@@ -20,7 +20,8 @@ public class SQLConnection {
         ResultSet rs = st.executeQuery("select * from Roll");
         while(rs.next()){
         int ID = rs.getInt(1);
-        System.out.println(ID);
+        String status = rs.getString(2);
+        System.out.println(ID + " " + status);
         
         }
     }

@@ -30,12 +30,60 @@ public class StartPageFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        pnlStart = new javax.swing.JPanel();
+        btnFormellBlogg = new javax.swing.JButton();
+        btnInformellBlogg = new javax.swing.JButton();
+        btnMoten = new javax.swing.JButton();
+        btnProfil = new javax.swing.JButton();
+        btnUtbildning = new javax.swing.JButton();
+        btnForskning = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Du lyckades!!");
+        pnlStart.setBorder(javax.swing.BorderFactory.createTitledBorder("VIsa information om"));
+
+        btnFormellBlogg.setText("Formell Blogg");
+        btnFormellBlogg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFormellBloggActionPerformed(evt);
+            }
+        });
+
+        btnInformellBlogg.setText("Informell Blogg");
+        btnInformellBlogg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInformellBloggActionPerformed(evt);
+            }
+        });
+
+        btnMoten.setText("Möten");
+        btnMoten.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMotenActionPerformed(evt);
+            }
+        });
+
+        btnProfil.setText("Profil");
+        btnProfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfilActionPerformed(evt);
+            }
+        });
+
+        btnUtbildning.setText("Utbildning");
+        btnUtbildning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUtbildningActionPerformed(evt);
+            }
+        });
+
+        btnForskning.setText("Forskning");
+        btnForskning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnForskningActionPerformed(evt);
+            }
+        });
 
         btnLogOut.setText("Logga ut");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -44,28 +92,63 @@ public class StartPageFrame extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout pnlStartLayout = new javax.swing.GroupLayout(pnlStart);
+        pnlStart.setLayout(pnlStartLayout);
+        pnlStartLayout.setHorizontalGroup(
+            pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStartLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnInformellBlogg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFormellBlogg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMoten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUtbildning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnForskning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlStartLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogOut)
+                .addGap(22, 22, 22))
+        );
+        pnlStartLayout.setVerticalGroup(
+            pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStartLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(btnFormellBlogg)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnInformellBlogg)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMoten)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProfil)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnUtbildning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnForskning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogOut)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnLogOut))
             .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(jLabel1)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(pnlStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btnLogOut)
-                .addGap(104, 104, 104)
-                .addComponent(jLabel1)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(pnlStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.getAccessibleContext().setAccessibleName("JLabel1");
+        pnlStart.getAccessibleContext().setAccessibleName("Visa information om:");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -82,6 +165,42 @@ public class StartPageFrame extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         } 
     }//GEN-LAST:event_btnLogOutActionPerformed
+
+    private void btnMotenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotenActionPerformed
+        this.dispose();
+        Moten motesfonster = new Moten();
+        motesfonster.setVisible(true);
+    }//GEN-LAST:event_btnMotenActionPerformed
+
+    private void btnFormellBloggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormellBloggActionPerformed
+        this.dispose();
+        FormellBlogg formell = new FormellBlogg();
+        formell.setVisible(true);
+    }//GEN-LAST:event_btnFormellBloggActionPerformed
+
+    private void btnInformellBloggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformellBloggActionPerformed
+        this.dispose();
+        InformellBlogg informell = new InformellBlogg();
+        informell.setVisible(true);
+    }//GEN-LAST:event_btnInformellBloggActionPerformed
+
+    private void btnProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfilActionPerformed
+        this.dispose();
+        Profil profilfonster = new Profil();
+        profilfonster.setVisible(true);
+    }//GEN-LAST:event_btnProfilActionPerformed
+
+    private void btnUtbildningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUtbildningActionPerformed
+        this.dispose();
+        Utbildning utbildning = new Utbildning();
+        utbildning.setVisible(true);
+    }//GEN-LAST:event_btnUtbildningActionPerformed
+
+    private void btnForskningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnForskningActionPerformed
+        this.dispose();
+        Forskning forskning = new Forskning();
+        forskning.setVisible(true);
+    }//GEN-LAST:event_btnForskningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,7 +238,13 @@ public class StartPageFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFormellBlogg;
+    private javax.swing.JButton btnForskning;
+    private javax.swing.JButton btnInformellBlogg;
     private javax.swing.JButton btnLogOut;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnMoten;
+    private javax.swing.JButton btnProfil;
+    private javax.swing.JButton btnUtbildning;
+    private javax.swing.JPanel pnlStart;
     // End of variables declaration//GEN-END:variables
 }
