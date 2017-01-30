@@ -134,6 +134,12 @@ setVisible(false);
             fönster.setVisible(true);
             
         }
+        else{
+            JOptionPane.showMessageDialog(null, "Inlogget är ej giltigt. Har du angett korrekt användarnamn och lösenord?");
+        }
+        
+        if(Validator.itIsEmpty(TxfUserName)){}       
+        if(Validator.itIsEmpty(PwfPassword)){}
         /**else{
             System.out.println("Det finns ingen användare med det inlogget");
         }*/

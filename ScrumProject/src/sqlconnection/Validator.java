@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import sqlconnection.SQLConnection;
 
 /**
@@ -14,6 +16,16 @@ import sqlconnection.SQLConnection;
  * @author Tomas
  */
 public class Validator {
+        
+    public static boolean itIsEmpty(JTextField tf){
+        if(tf.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Textfältet är tomt");
+            tf.requestFocus();//Sätter fokus vid fel
+            return false;
+        }
+        return true;
+    }
+    
     
     public static boolean LoginIsValid(String LoginString){
         boolean exists = false;
@@ -32,7 +44,8 @@ public class Validator {
                 if(log.equals(LoginString)){
                     exists = true;
                 }
-            }         
+            }
+
         }
       
          catch (Exception ex) {

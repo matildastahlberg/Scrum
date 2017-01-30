@@ -48,23 +48,21 @@ public class StartPageFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jLabel1)
-                .addContainerGap(232, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogOut)
-                .addGap(40, 40, 40))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnLogOut))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addComponent(jLabel1)
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
-                .addContainerGap())
+                .addGap(104, 104, 104)
+                .addComponent(jLabel1)
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("JLabel1");
