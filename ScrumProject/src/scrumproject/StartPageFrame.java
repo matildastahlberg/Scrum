@@ -6,6 +6,9 @@
 package scrumproject;
 
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import javafx.scene.control.DatePicker;
+import javax.swing.table.DefaultTableModel;
 import sqlconnection.SQLConnection;
 
 /**
@@ -39,11 +42,28 @@ public class StartPageFrame extends javax.swing.JFrame {
         btnSkapaFormelltInlägg = new javax.swing.JButton();
         pnlInformellBlogg = new javax.swing.JPanel();
         pnlMoten = new javax.swing.JPanel();
+        pnlBjudInTillMoten = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblBjudInTillMote = new javax.swing.JTable();
+        dpMote = new org.jdesktop.swingx.JXDatePicker();
+        btnBjudIn = new javax.swing.JButton();
+        lblTidMoten = new javax.swing.JLabel();
+        lblPlatsMoten = new javax.swing.JLabel();
+        txfTidMoten = new javax.swing.JTextField();
+        txfPlatsMoten = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        cbxSvaraPaMoten = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         pnlForskning = new javax.swing.JPanel();
         pnlUtbildning = new javax.swing.JPanel();
         pnlProfil = new javax.swing.JPanel();
         pnlLoggaUt = new javax.swing.JPanel();
         btnLogOut = new javax.swing.JButton();
+        pnlKalender = new javax.swing.JPanel();
+        Kalender = new com.toedter.calendar.JCalendar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,7 +93,7 @@ public class StartPageFrame extends javax.swing.JFrame {
                         .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnSkapaFormelltInlägg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlFormellBloggLayout.setVerticalGroup(
@@ -88,7 +108,7 @@ public class StartPageFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSkapaFormelltInlägg)
                         .addContainerGap())
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)))
         );
 
         tbdpStart.addTab("Formella bloggen", pnlFormellBlogg);
@@ -97,24 +117,159 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlInformellBlogg.setLayout(pnlInformellBloggLayout);
         pnlInformellBloggLayout.setHorizontalGroup(
             pnlInformellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         pnlInformellBloggLayout.setVerticalGroup(
             pnlInformellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         tbdpStart.addTab("Informella bloggen", pnlInformellBlogg);
+
+        pnlBjudInTillMoten.setBorder(javax.swing.BorderFactory.createTitledBorder("Här kan du skapa inbjudan till ett möte"));
+
+        tblBjudInTillMote.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Personer du kan bjuda in"
+            }
+        ));
+        jScrollPane2.setViewportView(tblBjudInTillMote);
+
+        dpMote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dpMoteActionPerformed(evt);
+            }
+        });
+
+        btnBjudIn.setText("Bjud In");
+        btnBjudIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBjudInActionPerformed(evt);
+            }
+        });
+
+        lblTidMoten.setText("Tid:");
+
+        lblPlatsMoten.setText("Plats:");
+
+        jLabel1.setText("Välj datum för mötet:");
+
+        javax.swing.GroupLayout pnlBjudInTillMotenLayout = new javax.swing.GroupLayout(pnlBjudInTillMoten);
+        pnlBjudInTillMoten.setLayout(pnlBjudInTillMotenLayout);
+        pnlBjudInTillMotenLayout.setHorizontalGroup(
+            pnlBjudInTillMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBjudInTillMotenLayout.createSequentialGroup()
+                .addGroup(pnlBjudInTillMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBjudInTillMotenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlBjudInTillMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txfTidMoten)
+                            .addGroup(pnlBjudInTillMotenLayout.createSequentialGroup()
+                                .addGroup(pnlBjudInTillMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTidMoten)
+                                    .addComponent(lblPlatsMoten))
+                                .addGap(0, 125, Short.MAX_VALUE))
+                            .addComponent(txfPlatsMoten)))
+                    .addGroup(pnlBjudInTillMotenLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(btnBjudIn)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnlBjudInTillMotenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(dpMote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pnlBjudInTillMotenLayout.setVerticalGroup(
+            pnlBjudInTillMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBjudInTillMotenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlBjudInTillMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dpMote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(pnlBjudInTillMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(pnlBjudInTillMotenLayout.createSequentialGroup()
+                        .addComponent(lblTidMoten)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txfTidMoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(lblPlatsMoten)
+                        .addGap(18, 18, 18)
+                        .addComponent(txfPlatsMoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 133, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnBjudIn)
+                .addContainerGap())
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Inbjudan till möten"));
+
+        jLabel2.setText("Svara på om du kan komma på dessa möten:");
+
+        jButton1.setText("Tacka ja");
+
+        jButton2.setText("Tacka nej");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxSvaraPaMoten, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton2)
+                        .addGap(63, 63, 63))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(cbxSvaraPaMoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout pnlMotenLayout = new javax.swing.GroupLayout(pnlMoten);
         pnlMoten.setLayout(pnlMotenLayout);
         pnlMotenLayout.setHorizontalGroup(
             pnlMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMotenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlBjudInTillMoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         pnlMotenLayout.setVerticalGroup(
             pnlMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMotenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlBjudInTillMoten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         tbdpStart.addTab("Möten", pnlMoten);
@@ -123,11 +278,11 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlForskning.setLayout(pnlForskningLayout);
         pnlForskningLayout.setHorizontalGroup(
             pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         pnlForskningLayout.setVerticalGroup(
             pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         tbdpStart.addTab("Forskning", pnlForskning);
@@ -136,11 +291,11 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlUtbildning.setLayout(pnlUtbildningLayout);
         pnlUtbildningLayout.setHorizontalGroup(
             pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         pnlUtbildningLayout.setVerticalGroup(
             pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         tbdpStart.addTab("Utbildning", pnlUtbildning);
@@ -149,11 +304,11 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlProfil.setLayout(pnlProfilLayout);
         pnlProfilLayout.setHorizontalGroup(
             pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         pnlProfilLayout.setVerticalGroup(
             pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         tbdpStart.addTab("Profil", pnlProfil);
@@ -169,32 +324,54 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlLoggaUt.setLayout(pnlLoggaUtLayout);
         pnlLoggaUtLayout.setHorizontalGroup(
             pnlLoggaUtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoggaUtLayout.createSequentialGroup()
-                .addContainerGap(553, Short.MAX_VALUE)
+            .addGroup(pnlLoggaUtLayout.createSequentialGroup()
+                .addContainerGap(776, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addGap(29, 29, 29))
         );
         pnlLoggaUtLayout.setVerticalGroup(
             pnlLoggaUtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoggaUtLayout.createSequentialGroup()
-                .addContainerGap(286, Short.MAX_VALUE)
+                .addContainerGap(439, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addContainerGap())
         );
 
         tbdpStart.addTab("Logga ut", pnlLoggaUt);
 
+        javax.swing.GroupLayout pnlKalenderLayout = new javax.swing.GroupLayout(pnlKalender);
+        pnlKalender.setLayout(pnlKalenderLayout);
+        pnlKalenderLayout.setHorizontalGroup(
+            pnlKalenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlKalenderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Kalender, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(217, Short.MAX_VALUE))
+        );
+        pnlKalenderLayout.setVerticalGroup(
+            pnlKalenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlKalenderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Kalender, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tbdpStart.addTab("Kalender", pnlKalender);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tbdpStart)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tbdpStart, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tbdpStart, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 75, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(tbdpStart, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -212,6 +389,38 @@ public class StartPageFrame extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         } 
     }//GEN-LAST:event_btnLogOutActionPerformed
+
+    private void dpMoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dpMoteActionPerformed
+        try {
+            
+            DefaultTableModel anstalldaModel = (DefaultTableModel) tblBjudInTillMote.getModel();
+            anstalldaModel.setRowCount(0);
+            
+            ResultSet rs = SQLConnection.getDatabas().executeQuery("SELECT Namn FROM Anvandare");
+
+            String namn = "";
+            while(rs.next()) { 
+                namn = rs.getString("Namn");
+                anstalldaModel.insertRow(tblBjudInTillMote.getRowCount(), new Object[] {namn});
+            } 
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_dpMoteActionPerformed
+
+    private void btnBjudInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBjudInActionPerformed
+        try {
+            DatePicker datePicker = new DatePicker(LocalDate.now());
+            LocalDate localDate = datePicker.getValue();
+            //cbxSvaraPaMoten.addItem(MÖTEN);
+            txfTidMoten.getText();
+            txfPlatsMoten.getText();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnBjudInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,19 +458,36 @@ public class StartPageFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JCalendar Kalender;
+    private javax.swing.JButton btnBjudIn;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnSkapaFormelltInlägg;
     private javax.swing.JComboBox<String> cbKategori;
+    private javax.swing.JComboBox<String> cbxSvaraPaMoten;
+    private org.jdesktop.swingx.JXDatePicker dpMote;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblPlatsMoten;
+    private javax.swing.JLabel lblTidMoten;
     private javax.swing.JLabel lblValjKategori;
+    private javax.swing.JPanel pnlBjudInTillMoten;
     private javax.swing.JPanel pnlFormellBlogg;
     private javax.swing.JPanel pnlForskning;
     private javax.swing.JPanel pnlInformellBlogg;
+    private javax.swing.JPanel pnlKalender;
     private javax.swing.JPanel pnlLoggaUt;
     private javax.swing.JPanel pnlMoten;
     private javax.swing.JPanel pnlProfil;
     private javax.swing.JPanel pnlUtbildning;
     private javax.swing.JTabbedPane tbdpStart;
+    private javax.swing.JTable tblBjudInTillMote;
+    private javax.swing.JTextField txfPlatsMoten;
+    private javax.swing.JTextField txfTidMoten;
     // End of variables declaration//GEN-END:variables
 }

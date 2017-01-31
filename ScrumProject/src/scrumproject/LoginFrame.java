@@ -127,6 +127,8 @@ setVisible(false);
        String LoginString = TxfUserName.getText().toString()+PwfPassword.getText().toString();
        try{
         if(Validator.LoginIsValid(LoginString)){
+            SQLConnection.getDatabas().executeUpdate("UPDATE Anvandare SET Inloggad = 0");//säkerhetsgrej för att endast en person ska vara inloggad
+            
             SQLConnection.getDatabas().executeUpdate("UPDATE Anvandare SET Inloggad = 1 WHERE AnvandarNamn = '" + TxfUserName.getText().toString() + "'");
 
             closeWindow();
