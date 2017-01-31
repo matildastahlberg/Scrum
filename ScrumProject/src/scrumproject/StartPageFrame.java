@@ -30,60 +30,133 @@ public class StartPageFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlStart = new javax.swing.JPanel();
-        btnFormellBlogg = new javax.swing.JButton();
-        btnInformellBlogg = new javax.swing.JButton();
-        btnMoten = new javax.swing.JButton();
-        btnProfil = new javax.swing.JButton();
-        btnUtbildning = new javax.swing.JButton();
-        btnForskning = new javax.swing.JButton();
+        tbdpStart = new javax.swing.JTabbedPane();
+        pnlFormellBlogg = new javax.swing.JPanel();
+        lblValjKategori = new javax.swing.JLabel();
+        cbKategori = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        btnSkapaFormelltInlägg = new javax.swing.JButton();
+        pnlInformellBlogg = new javax.swing.JPanel();
+        pnlMoten = new javax.swing.JPanel();
+        pnlForskning = new javax.swing.JPanel();
+        pnlUtbildning = new javax.swing.JPanel();
+        pnlProfil = new javax.swing.JPanel();
+        pnlLoggaUt = new javax.swing.JPanel();
         btnLogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnlStart.setBorder(javax.swing.BorderFactory.createTitledBorder("VIsa information om"));
+        pnlFormellBlogg.setToolTipText("");
 
-        btnFormellBlogg.setText("Formell Blogg");
-        btnFormellBlogg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFormellBloggActionPerformed(evt);
-            }
-        });
+        lblValjKategori.setText("Välj kategori:");
 
-        btnInformellBlogg.setText("Informell Blogg");
-        btnInformellBlogg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInformellBloggActionPerformed(evt);
-            }
-        });
+        cbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Forskning", "Utbildning" }));
 
-        btnMoten.setText("Möten");
-        btnMoten.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMotenActionPerformed(evt);
-            }
-        });
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
-        btnProfil.setText("Profil");
-        btnProfil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProfilActionPerformed(evt);
-            }
-        });
+        btnSkapaFormelltInlägg.setText("Skapa inlägg");
 
-        btnUtbildning.setText("Utbildning");
-        btnUtbildning.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUtbildningActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout pnlFormellBloggLayout = new javax.swing.GroupLayout(pnlFormellBlogg);
+        pnlFormellBlogg.setLayout(pnlFormellBloggLayout);
+        pnlFormellBloggLayout.setHorizontalGroup(
+            pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                        .addComponent(lblValjKategori)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSkapaFormelltInlägg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlFormellBloggLayout.setVerticalGroup(
+            pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblValjKategori)
+                            .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSkapaFormelltInlägg)
+                        .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)))
+        );
 
-        btnForskning.setText("Forskning");
-        btnForskning.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnForskningActionPerformed(evt);
-            }
-        });
+        tbdpStart.addTab("Formella bloggen", pnlFormellBlogg);
+
+        javax.swing.GroupLayout pnlInformellBloggLayout = new javax.swing.GroupLayout(pnlInformellBlogg);
+        pnlInformellBlogg.setLayout(pnlInformellBloggLayout);
+        pnlInformellBloggLayout.setHorizontalGroup(
+            pnlInformellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 657, Short.MAX_VALUE)
+        );
+        pnlInformellBloggLayout.setVerticalGroup(
+            pnlInformellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+
+        tbdpStart.addTab("Informella bloggen", pnlInformellBlogg);
+
+        javax.swing.GroupLayout pnlMotenLayout = new javax.swing.GroupLayout(pnlMoten);
+        pnlMoten.setLayout(pnlMotenLayout);
+        pnlMotenLayout.setHorizontalGroup(
+            pnlMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 657, Short.MAX_VALUE)
+        );
+        pnlMotenLayout.setVerticalGroup(
+            pnlMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+
+        tbdpStart.addTab("Möten", pnlMoten);
+
+        javax.swing.GroupLayout pnlForskningLayout = new javax.swing.GroupLayout(pnlForskning);
+        pnlForskning.setLayout(pnlForskningLayout);
+        pnlForskningLayout.setHorizontalGroup(
+            pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 657, Short.MAX_VALUE)
+        );
+        pnlForskningLayout.setVerticalGroup(
+            pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+
+        tbdpStart.addTab("Forskning", pnlForskning);
+
+        javax.swing.GroupLayout pnlUtbildningLayout = new javax.swing.GroupLayout(pnlUtbildning);
+        pnlUtbildning.setLayout(pnlUtbildningLayout);
+        pnlUtbildningLayout.setHorizontalGroup(
+            pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 657, Short.MAX_VALUE)
+        );
+        pnlUtbildningLayout.setVerticalGroup(
+            pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+
+        tbdpStart.addTab("Utbildning", pnlUtbildning);
+
+        javax.swing.GroupLayout pnlProfilLayout = new javax.swing.GroupLayout(pnlProfil);
+        pnlProfil.setLayout(pnlProfilLayout);
+        pnlProfilLayout.setHorizontalGroup(
+            pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 657, Short.MAX_VALUE)
+        );
+        pnlProfilLayout.setVerticalGroup(
+            pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+
+        tbdpStart.addTab("Profil", pnlProfil);
 
         btnLogOut.setText("Logga ut");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -92,63 +165,37 @@ public class StartPageFrame extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pnlStartLayout = new javax.swing.GroupLayout(pnlStart);
-        pnlStart.setLayout(pnlStartLayout);
-        pnlStartLayout.setHorizontalGroup(
-            pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStartLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnInformellBlogg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFormellBlogg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMoten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnUtbildning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnForskning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(230, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlStartLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnlLoggaUtLayout = new javax.swing.GroupLayout(pnlLoggaUt);
+        pnlLoggaUt.setLayout(pnlLoggaUtLayout);
+        pnlLoggaUtLayout.setHorizontalGroup(
+            pnlLoggaUtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoggaUtLayout.createSequentialGroup()
+                .addContainerGap(553, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
-                .addGap(22, 22, 22))
+                .addGap(29, 29, 29))
         );
-        pnlStartLayout.setVerticalGroup(
-            pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStartLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(btnFormellBlogg)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnInformellBlogg)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMoten)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnProfil)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUtbildning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnForskning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pnlLoggaUtLayout.setVerticalGroup(
+            pnlLoggaUtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoggaUtLayout.createSequentialGroup()
+                .addContainerGap(286, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addContainerGap())
         );
+
+        tbdpStart.addTab("Logga ut", pnlLoggaUt);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(pnlStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(tbdpStart)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(pnlStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tbdpStart, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 75, Short.MAX_VALUE))
         );
-
-        pnlStart.getAccessibleContext().setAccessibleName("Visa information om:");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,42 +212,6 @@ public class StartPageFrame extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         } 
     }//GEN-LAST:event_btnLogOutActionPerformed
-
-    private void btnMotenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotenActionPerformed
-        this.dispose();
-        Moten motesfonster = new Moten();
-        motesfonster.setVisible(true);
-    }//GEN-LAST:event_btnMotenActionPerformed
-
-    private void btnFormellBloggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormellBloggActionPerformed
-        this.dispose();
-        FormellBlogg formell = new FormellBlogg();
-        formell.setVisible(true);
-    }//GEN-LAST:event_btnFormellBloggActionPerformed
-
-    private void btnInformellBloggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformellBloggActionPerformed
-        this.dispose();
-        InformellBlogg informell = new InformellBlogg();
-        informell.setVisible(true);
-    }//GEN-LAST:event_btnInformellBloggActionPerformed
-
-    private void btnProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfilActionPerformed
-        this.dispose();
-        Profil profilfonster = new Profil();
-        profilfonster.setVisible(true);
-    }//GEN-LAST:event_btnProfilActionPerformed
-
-    private void btnUtbildningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUtbildningActionPerformed
-        this.dispose();
-        Utbildning utbildning = new Utbildning();
-        utbildning.setVisible(true);
-    }//GEN-LAST:event_btnUtbildningActionPerformed
-
-    private void btnForskningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnForskningActionPerformed
-        this.dispose();
-        Forskning forskning = new Forskning();
-        forskning.setVisible(true);
-    }//GEN-LAST:event_btnForskningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,13 +249,19 @@ public class StartPageFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFormellBlogg;
-    private javax.swing.JButton btnForskning;
-    private javax.swing.JButton btnInformellBlogg;
     private javax.swing.JButton btnLogOut;
-    private javax.swing.JButton btnMoten;
-    private javax.swing.JButton btnProfil;
-    private javax.swing.JButton btnUtbildning;
-    private javax.swing.JPanel pnlStart;
+    private javax.swing.JButton btnSkapaFormelltInlägg;
+    private javax.swing.JComboBox<String> cbKategori;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblValjKategori;
+    private javax.swing.JPanel pnlFormellBlogg;
+    private javax.swing.JPanel pnlForskning;
+    private javax.swing.JPanel pnlInformellBlogg;
+    private javax.swing.JPanel pnlLoggaUt;
+    private javax.swing.JPanel pnlMoten;
+    private javax.swing.JPanel pnlProfil;
+    private javax.swing.JPanel pnlUtbildning;
+    private javax.swing.JTabbedPane tbdpStart;
     // End of variables declaration//GEN-END:variables
 }
