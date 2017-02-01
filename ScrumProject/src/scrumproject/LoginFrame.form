@@ -40,7 +40,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="PwfPassword" max="32767" attributes="0"/>
+                                  <Component id="PwfPassword" pref="111" max="32767" attributes="0"/>
                                   <Component id="TxfUserName" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -86,9 +86,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="PwfPassword">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PwfPasswordActionPerformed"/>
       </Events>

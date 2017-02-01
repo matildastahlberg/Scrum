@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import javafx.scene.control.DatePicker;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import sqlconnection.SQLConnection;
 
 /**
@@ -22,6 +23,32 @@ public class StartPageFrame extends javax.swing.JFrame {
      */
     public StartPageFrame() {
         initComponents();
+    }
+    
+    public void fyllListaMedInlagg(){
+        try{
+           DefaultTableModel inlaggsaModell = (DefaultTableModel) tbFormellaInlagg.getModel();
+            inlaggsaModell.setRowCount(0);
+            
+            String kategori = cbKategori.getSelectedItem().toString();
+            ResultSet rs = SQLConnection.getDatabas().executeQuery("select namn, titel, datum, FormelltInlagg.Id from FormelltInlagg join Anvandare on Anvandare.ID = FormelltInlagg.Forfattare where Kategori = '" + kategori + "'" + "Order by datum DESC");
+
+            String namn = "";
+            String titel = "";
+            String datum = "";
+            String id = "";
+            while(rs.next()) { 
+                namn = rs.getString(1);
+                titel = rs.getString(2);
+                datum = rs.getString(3);
+                id = rs.getString(4);
+                inlaggsaModell.insertRow(tbFormellaInlagg.getRowCount(), new Object[] {namn, titel, datum, id});
+            } 
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
     }
 
     /**
@@ -37,9 +64,20 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlFormellBlogg = new javax.swing.JPanel();
         lblValjKategori = new javax.swing.JLabel();
         cbKategori = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         btnSkapaFormelltInlägg = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbFormellaInlagg = new javax.swing.JTable();
+        btnVisaInlagg = new javax.swing.JButton();
+        btnVisaValtInlagg = new javax.swing.JButton();
+        txfFormellForfattare = new javax.swing.JTextField();
+        txfFormellTitel = new javax.swing.JTextField();
+        txfFormellDatum = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txaFormellInlagg = new javax.swing.JTextArea();
         pnlInformellBlogg = new javax.swing.JPanel();
         pnlMoten = new javax.swing.JPanel();
         pnlBjudInTillMoten = new javax.swing.JPanel();
@@ -73,12 +111,66 @@ public class StartPageFrame extends javax.swing.JFrame {
 
         cbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Forskning", "Utbildning" }));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
         btnSkapaFormelltInlägg.setText("Skapa inlägg");
+
+        tbFormellaInlagg.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Författare", "Titel", "Datum", "ID"
+            }
+        ));
+        jScrollPane3.setViewportView(tbFormellaInlagg);
+
+        btnVisaInlagg.setText("Visa inlägg");
+        btnVisaInlagg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaInlaggActionPerformed(evt);
+            }
+        });
+
+        btnVisaValtInlagg.setText("Visa valt inlägg");
+        btnVisaValtInlagg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaValtInlaggActionPerformed(evt);
+            }
+        });
+
+        txfFormellForfattare.setEditable(false);
+
+        txfFormellTitel.setEditable(false);
+
+        txfFormellDatum.setEditable(false);
+
+        jLabel3.setText("Författare:");
+
+        jLabel4.setText("Titel:");
+
+        jLabel5.setText("Datum:");
+
+        jLabel6.setText("Inlägg:");
+
+        txaFormellInlagg.setEditable(false);
+        txaFormellInlagg.setColumns(20);
+        txaFormellInlagg.setRows(5);
+        jScrollPane4.setViewportView(txaFormellInlagg);
 
         javax.swing.GroupLayout pnlFormellBloggLayout = new javax.swing.GroupLayout(pnlFormellBlogg);
         pnlFormellBlogg.setLayout(pnlFormellBloggLayout);
@@ -93,22 +185,58 @@ public class StartPageFrame extends javax.swing.JFrame {
                         .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnSkapaFormelltInlägg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                        .addComponent(btnVisaInlagg)
+                        .addGap(266, 266, 266)
+                        .addComponent(btnVisaValtInlagg))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txfFormellTitel)
+                            .addComponent(txfFormellForfattare)
+                            .addComponent(txfFormellDatum)))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlFormellBloggLayout.setVerticalGroup(
             pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFormellBloggLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(15, 15, 15)
+                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblValjKategori)
+                    .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVisaInlagg)
+                    .addComponent(btnVisaValtInlagg))
+                .addGap(18, 18, 18)
                 .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSkapaFormelltInlägg)
                     .addGroup(pnlFormellBloggLayout.createSequentialGroup()
                         .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblValjKategori)
-                            .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSkapaFormelltInlägg)
-                        .addContainerGap())
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)))
+                            .addComponent(txfFormellForfattare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txfFormellTitel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txfFormellDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         tbdpStart.addTab("Formella bloggen", pnlFormellBlogg);
@@ -422,6 +550,28 @@ public class StartPageFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBjudInActionPerformed
 
+    private void btnVisaInlaggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaInlaggActionPerformed
+        fyllListaMedInlagg();
+    }//GEN-LAST:event_btnVisaInlaggActionPerformed
+
+    private void btnVisaValtInlaggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaValtInlaggActionPerformed
+        try{
+        int i = tbFormellaInlagg.getSelectedRow();
+        TableModel model = tbFormellaInlagg.getModel();
+        txfFormellForfattare.setText(model.getValueAt(i, 0).toString());
+        txfFormellTitel.setText(model.getValueAt(i, 1).toString());
+        txfFormellDatum.setText(model.getValueAt(i, 2).toString());
+        String id = model.getValueAt(i, 3).toString();
+        //Här ska vi fortsätta imorn
+        int id1 = Integer.parseInt(id);
+        ResultSet rs = SQLConnection.getDatabas().executeQuery("Select text from FormelltInlagg where id = " + id1);  
+        txaFormellInlagg.setText(rs.getString(1));
+       }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+    }//GEN-LAST:event_btnVisaValtInlaggActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -462,6 +612,8 @@ public class StartPageFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnBjudIn;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnSkapaFormelltInlägg;
+    private javax.swing.JButton btnVisaInlagg;
+    private javax.swing.JButton btnVisaValtInlagg;
     private javax.swing.JComboBox<String> cbKategori;
     private javax.swing.JComboBox<String> cbxSvaraPaMoten;
     private org.jdesktop.swingx.JXDatePicker dpMote;
@@ -469,10 +621,14 @@ public class StartPageFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lblPlatsMoten;
     private javax.swing.JLabel lblTidMoten;
     private javax.swing.JLabel lblValjKategori;
@@ -485,8 +641,13 @@ public class StartPageFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMoten;
     private javax.swing.JPanel pnlProfil;
     private javax.swing.JPanel pnlUtbildning;
+    private javax.swing.JTable tbFormellaInlagg;
     private javax.swing.JTabbedPane tbdpStart;
     private javax.swing.JTable tblBjudInTillMote;
+    private javax.swing.JTextArea txaFormellInlagg;
+    private javax.swing.JTextField txfFormellDatum;
+    private javax.swing.JTextField txfFormellForfattare;
+    private javax.swing.JTextField txfFormellTitel;
     private javax.swing.JTextField txfPlatsMoten;
     private javax.swing.JTextField txfTidMoten;
     // End of variables declaration//GEN-END:variables
