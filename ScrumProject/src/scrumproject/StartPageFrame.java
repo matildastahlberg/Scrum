@@ -8,6 +8,7 @@ package scrumproject;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import javafx.scene.control.DatePicker;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.xml.bind.ParseConversionEvent;
@@ -397,6 +398,11 @@ public class StartPageFrame extends javax.swing.JFrame {
                 "Författare", "Titel", "Datum", "Inlägg", "ID"
             }
         ));
+        tbFormellaInlagg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbFormellaInlaggMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tbFormellaInlagg);
 
         btnVisaInlagg.setText("Visa inlägg");
@@ -454,49 +460,46 @@ public class StartPageFrame extends javax.swing.JFrame {
             pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormellBloggLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormellBloggLayout.createSequentialGroup()
                         .addComponent(lblValjKategori)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnSkapaFormelltInlägg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                        .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnVisaInlagg)
                         .addGap(266, 266, 266)
                         .addComponent(btnVisaValtInlagg))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                        .addComponent(btnSkapaFormelltInlägg, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txfFormellTitel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                            .addComponent(txfFormellForfattare, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txfFormellDatum)))
-                    .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnTaBortFormelltInlagg, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pnlFormellBloggLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txfFormelltID, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlFormellBloggLayout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSparaFormellFil)))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))))
+                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txfFormellForfattare, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfFormelltID, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfFormellTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfFormellDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormellBloggLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnTaBortFormelltInlagg, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSparaFormellFil)
+                .addGap(76, 76, 76))
         );
         pnlFormellBloggLayout.setVerticalGroup(
             pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -510,39 +513,43 @@ public class StartPageFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormellBloggLayout.createSequentialGroup()
-                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSkapaFormelltInlägg)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(132, 132, 132))
+                        .addComponent(btnSkapaFormelltInlägg)
+                        .addGap(409, 409, 409))
                     .addGroup(pnlFormellBloggLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txfFormelltID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txfFormellForfattare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(txfFormelltID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8)
+                                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(txfFormellForfattare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txfFormellTitel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8)
+                                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(txfFormellDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                                .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)))
+                            .addGroup(pnlFormellBloggLayout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(txfFormellTitel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txfFormellDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlFormellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
+                            .addComponent(btnTaBortFormelltInlagg)
                             .addComponent(btnSparaFormellFil))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnTaBortFormelltInlagg)
-                        .addGap(68, 68, 68))))
+                        .addGap(57, 57, 57))))
         );
 
         tbdpStart.addTab("Formella bloggen", pnlFormellBlogg);
@@ -552,7 +559,7 @@ public class StartPageFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(tbdpStart, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -618,39 +625,73 @@ public class StartPageFrame extends javax.swing.JFrame {
 
     private void btnVisaValtInlaggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaValtInlaggActionPerformed
         try{
+               
         int i = tbFormellaInlagg.getSelectedRow();
         TableModel model = tbFormellaInlagg.getModel();
-        txfFormellTitel.setText(model.getValueAt(i, 0).toString());
-        txfFormellDatum.setText(model.getValueAt(i, 1).toString());
+        txfFormellForfattare.setText(model.getValueAt(i, 0).toString());
+        txfFormellTitel.setText(model.getValueAt(i, 1).toString());
         txfFormellDatum.setText(model.getValueAt(i, 2).toString());
         txaFormellInlagg.setText(model.getValueAt(i, 3).toString());
         txfFormelltID.setText(model.getValueAt(i, 4).toString());
         
-          ResultSet rs = SQLConnection.getDatabas().executeQuery("Select ID from Anvandare Where Inloggad = 1");
-          int ID = rs.getInt(1);
-          String IDs = model.getValueAt(i, 4).toString();
-          int IDi = Integer.parseInt(IDs);
+        String inlaggsId = txfFormelltID.getText();
+        int inlaggsIdInt = Integer.parseInt(inlaggsId);
+        
+          ResultSet rs = SQLConnection.getDatabas().executeQuery("select Anvandare.ID from Anvandare\n" +
+                                                                    "join FormelltInlagg\n" +
+                                                                    "on Forfattare = Anvandare.ID\n" +
+                                                                    "where FormelltInlagg.ID =" + inlaggsIdInt + "\n" +
+                                                                    "and Inloggad = 1;");
+         
+//          while(rs.next()){
+//          int ID = rs.getInt(1);
+//          String IDs = model.getValueAt(i, 4).toString();
+//          int IDi = Integer.parseInt(IDs);   
           
-          if(ID == IDi ){
+          if(rs.next()){
             btnTaBortFormelltInlagg.setVisible(true);
-        }
-            
-            
-            
-
-       }
+            }
+          else{
+              btnTaBortFormelltInlagg.setVisible(false);
+            }
+//          }       
+    }
        catch(Exception e){
            System.out.println(e.getMessage());
        }
     }//GEN-LAST:event_btnVisaValtInlaggActionPerformed
 
     private void btnTaBortFormelltInlaggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortFormelltInlaggActionPerformed
-        // TODO add your handling code here:
+        try{
+            String id = txfFormelltID.getText();
+            int intId = Integer.parseInt(id);
+            SQLConnection.getDatabas().executeUpdate("delete from FormelltInlagg where id =" + intId);  
+            
+            txfFormellForfattare.setText("");
+            txfFormellTitel.setText("");
+            txfFormellDatum.setText("");
+            txaFormellInlagg.setText("");
+             txfFormelltID.setText("");
+             
+            JOptionPane.showMessageDialog(this, "Inlägget är nu borttaget");
+            fyllListaMedInlagg();
+        }
+        catch(Exception e){
+           System.out.println(e.getMessage()); 
+        }
     }//GEN-LAST:event_btnTaBortFormelltInlaggActionPerformed
 
     private void tbdpStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbdpStartMouseClicked
         btnTaBortFormelltInlagg.setVisible(false);
     }//GEN-LAST:event_tbdpStartMouseClicked
+
+    private void tbFormellaInlaggMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFormellaInlaggMouseClicked
+        txfFormelltID.setText("");
+        txfFormellForfattare.setText("");
+        txfFormellTitel.setText("");
+        txfFormellDatum.setText("");
+        txaFormellInlagg.setText("");
+    }//GEN-LAST:event_tbFormellaInlaggMouseClicked
 
     /**
      * @param args the command line arguments
