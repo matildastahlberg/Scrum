@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 import sqlconnection.SQLConnection;
 
 /**
@@ -17,9 +18,9 @@ import sqlconnection.SQLConnection;
  */
 public class Validator {
         
-    public static boolean itIsEmpty(JTextField tf){
+    public static boolean itIsEmpty(JTextField tf, JLabel lbl ){
         if(tf.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Textfältet är tomt");
+            lbl.setText("Fyll i alla textfält");
             tf.requestFocus();//Sätter fokus vid fel
             return false;
         }
