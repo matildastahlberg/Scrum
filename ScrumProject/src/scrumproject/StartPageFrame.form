@@ -25,8 +25,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tbdpStart" min="-2" pref="905" max="-2" attributes="0"/>
-              <EmptySpace pref="97" max="32767" attributes="0"/>
+              <Component id="tbdpStart" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,7 +64,7 @@
                       <Component id="pnlBjudInTillMoten" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="201" max="32767" attributes="0"/>
+                      <EmptySpace pref="206" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -669,43 +669,34 @@
                               <Component id="jScrollPane1" min="-2" pref="468" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="lblForskningDatum" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblForskningDatum" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblForskningForfattare" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblForskningID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblForskningTitel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblForskningInlagg" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblForskningFil" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txfForskningDatum" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txfForskningTitel" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txfForskningForfattare" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txfForskningID" alignment="1" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="txfForskningFil" min="-2" pref="94" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btnForskningSpara" min="-2" pref="63" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <Component id="lblForskningForfattare" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblForskningID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblForskningTitel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblForskningInlagg" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblForskningFil" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnForskningTabort" max="32767" attributes="0"/>
+                                  <Component id="txfForskningDatum" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane5" alignment="0" pref="193" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="txfForskningFil" max="32767" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btnForskningSpara" min="-2" pref="63" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="txfForskningForfattare" max="32767" attributes="0"/>
+                                  <Component id="txfForskningID" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txfForskningTitel" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                              <Component id="btnForskningTabort" min="-2" pref="160" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
-                      <EmptySpace pref="107" max="32767" attributes="0"/>
+                      <EmptySpace pref="86" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -723,10 +714,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnForskningSkapaInlagg" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="btnForskningSkapaInlagg" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="368" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
@@ -764,9 +757,9 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnForskningTabort" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -971,18 +964,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="btnUtbildningSkapaInlagg" min="-2" pref="103" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane6" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="bajs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnVisaValtUtbildningInlagg" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnVisaValtUtbildningInlagg" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -992,10 +980,10 @@
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txfUtbildningFil" max="32767" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnUtbildningSpara" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane7" alignment="0" pref="223" max="32767" attributes="0"/>
+                          <Component id="jScrollPane7" alignment="0" pref="257" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1005,14 +993,14 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txfUtbildningDatum" alignment="0" pref="154" max="32767" attributes="0"/>
-                                  <Component id="txfUtbildningTitel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txfUtbildningForfattare" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txfUtbildningForfattare" pref="193" max="32767" attributes="0"/>
                                   <Component id="txfUtbildningID" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txfUtbildningTitel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txfUtbildningDatum" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="80" max="32767" attributes="0"/>
+                      <EmptySpace pref="95" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1054,10 +1042,7 @@
                       <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnVisaValtUtbildningInlagg" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="bajs" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="btnVisaValtUtbildningInlagg" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnUtbildningSkapaInlagg" min="-2" max="-2" attributes="0"/>
@@ -1126,6 +1111,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblUtbildningMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1229,13 +1217,8 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ta bort inl&#xe4;gg"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="bajs">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jButton3"/>
-              </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bajsActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUtbildningTaBortActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -1297,7 +1280,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="489" max="32767" attributes="0"/>
+                      <EmptySpace pref="490" max="32767" attributes="0"/>
                       <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="389" max="-2" attributes="0"/>
                   </Group>

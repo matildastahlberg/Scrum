@@ -224,7 +224,6 @@ public class StartPageFrame extends javax.swing.JFrame {
         btnUtbildningSpara = new javax.swing.JButton();
         btnVisaValtUtbildningInlagg = new javax.swing.JButton();
         btnUtbildningTaBort = new javax.swing.JButton();
-        bajs = new javax.swing.JButton();
         pnlProfil = new javax.swing.JPanel();
         pnlKalender = new javax.swing.JPanel();
         pnlLoggaUt = new javax.swing.JPanel();
@@ -364,7 +363,7 @@ public class StartPageFrame extends javax.swing.JFrame {
                 .addComponent(pnlBjudInTillMoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         pnlMotenLayout.setVerticalGroup(
             pnlMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -668,34 +667,29 @@ public class StartPageFrame extends javax.swing.JFrame {
                         .addComponent(btnForskningSkapaInlagg)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
                 .addGroup(pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblForskningDatum)
                     .addGroup(pnlForskningLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
                         .addGroup(pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblForskningDatum)
-                            .addGroup(pnlForskningLayout.createSequentialGroup()
-                                .addGroup(pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblForskningForfattare)
-                                    .addComponent(lblForskningID)
-                                    .addComponent(lblForskningTitel)
-                                    .addComponent(lblForskningInlagg)
-                                    .addComponent(lblForskningFil))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txfForskningDatum)
-                                        .addComponent(txfForskningTitel)
-                                        .addComponent(txfForskningForfattare)
-                                        .addComponent(jScrollPane5)
-                                        .addComponent(txfForskningID, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addGroup(pnlForskningLayout.createSequentialGroup()
-                                        .addComponent(txfForskningFil, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnForskningSpara, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(pnlForskningLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(btnForskningTabort, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(107, Short.MAX_VALUE))
+                            .addComponent(lblForskningForfattare)
+                            .addComponent(lblForskningID)
+                            .addComponent(lblForskningTitel)
+                            .addComponent(lblForskningInlagg)
+                            .addComponent(lblForskningFil))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnForskningTabort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txfForskningDatum)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlForskningLayout.createSequentialGroup()
+                                .addComponent(txfForskningFil)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnForskningSpara, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txfForskningForfattare)
+                            .addComponent(txfForskningID)
+                            .addComponent(txfForskningTitel))))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         pnlForskningLayout.setVerticalGroup(
             pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -710,9 +704,10 @@ public class StartPageFrame extends javax.swing.JFrame {
                     .addGroup(pnlForskningLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnForskningSkapaInlagg)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnlForskningLayout.createSequentialGroup()
+                                .addComponent(btnForskningSkapaInlagg)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 368, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(pnlForskningLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -741,8 +736,8 @@ public class StartPageFrame extends javax.swing.JFrame {
                                 .addComponent(txfForskningFil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnForskningSpara)))
                         .addGap(18, 18, 18)
-                        .addComponent(btnForskningTabort)
-                        .addGap(42, 42, 42))))
+                        .addComponent(btnForskningTabort)))
+                .addGap(42, 42, 42))
         );
 
         tbdpStart.addTab("Forskning", pnlForskning);
@@ -769,6 +764,11 @@ public class StartPageFrame extends javax.swing.JFrame {
                 "ID", "Författare", "Titel", "Datum", "Inlägg", "Fil"
             }
         ));
+        tblUtbildning.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblUtbildningMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(tblUtbildning);
 
         btnUtbildningSkapaInlagg.setText("Skapa inlägg");
@@ -821,11 +821,9 @@ public class StartPageFrame extends javax.swing.JFrame {
         });
 
         btnUtbildningTaBort.setText("Ta bort inlägg");
-
-        bajs.setText("jButton3");
-        bajs.addActionListener(new java.awt.event.ActionListener() {
+        btnUtbildningTaBort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bajsActionPerformed(evt);
+                btnUtbildningTaBortActionPerformed(evt);
             }
         });
 
@@ -834,16 +832,12 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlUtbildningLayout.setHorizontalGroup(
             pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUtbildningLayout.createSequentialGroup()
-                .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlUtbildningLayout.createSequentialGroup()
                         .addComponent(btnUtbildningSkapaInlagg, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlUtbildningLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(bajs)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVisaValtUtbildningInlagg)))
+                    .addComponent(btnVisaValtUtbildningInlagg))
                 .addGap(29, 29, 29)
                 .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnUtbildningTaBort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -852,9 +846,9 @@ public class StartPageFrame extends javax.swing.JFrame {
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txfUtbildningFil)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnUtbildningSpara))
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                     .addGroup(pnlUtbildningLayout.createSequentialGroup()
                         .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -863,11 +857,11 @@ public class StartPageFrame extends javax.swing.JFrame {
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txfUtbildningDatum, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                            .addComponent(txfUtbildningForfattare, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(txfUtbildningID)
                             .addComponent(txfUtbildningTitel)
-                            .addComponent(txfUtbildningForfattare)
-                            .addComponent(txfUtbildningID))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                            .addComponent(txfUtbildningDatum))))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         pnlUtbildningLayout.setVerticalGroup(
             pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -901,9 +895,7 @@ public class StartPageFrame extends javax.swing.JFrame {
                 .addComponent(btnUtbildningTaBort)
                 .addGap(87, 87, 87))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUtbildningLayout.createSequentialGroup()
-                .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVisaValtUtbildningInlagg)
-                    .addComponent(bajs))
+                .addComponent(btnVisaValtUtbildningInlagg)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUtbildningSkapaInlagg)
@@ -951,7 +943,7 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlLoggaUtLayout.setHorizontalGroup(
             pnlLoggaUtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoggaUtLayout.createSequentialGroup()
-                .addContainerGap(489, Short.MAX_VALUE)
+                .addContainerGap(490, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addGap(389, 389, 389))
         );
@@ -971,8 +963,8 @@ public class StartPageFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbdpStart, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addComponent(tbdpStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1043,8 +1035,11 @@ public class StartPageFrame extends javax.swing.JFrame {
         txfFormellTitel.setText(model.getValueAt(i, 2).toString());
         txfFormellDatum.setText(model.getValueAt(i, 3).toString());
         txaFormellInlagg.setText(model.getValueAt(i, 4).toString());
+        if(model.getValueAt(i, 5) == null){
+            txfFormellFilvag.setText("Ingen fil finns");
+        }else{
         txfFormellFilvag.setText(model.getValueAt(i, 5).toString());
-
+        }
         
         String inlaggsId = txfFormelltID.getText();
         int inlaggsIdInt = Integer.parseInt(inlaggsId);
@@ -1119,7 +1114,7 @@ public class StartPageFrame extends javax.swing.JFrame {
         txaForskningInlagg.setText(model.getValueAt(i, 4).toString());
         txfForskningID.setText(model.getValueAt(i, 0).toString());
         if(model.getValueAt(i, 5) == null){
-        txfForskningFil.setText("Ingen bifogad fil finns");
+        txfForskningFil.setText("Ingen fil finns");
         }else{
           txfForskningFil.setText(model.getValueAt(i, 5).toString());  
         }
@@ -1193,7 +1188,7 @@ public class StartPageFrame extends javax.swing.JFrame {
         txaUtbildningInlagg.setText(model.getValueAt(i, 4).toString());
         txfUtbildningID.setText(model.getValueAt(i, 0).toString());
         if(model.getValueAt(i, 5) == null){
-          txfUtbildningFil.setText("Ingen bifogad fil finns");  
+          txfUtbildningFil.setText("Ingen fil finns");  
         }else{
         txfUtbildningFil.setText(model.getValueAt(i, 5).toString());
         }
@@ -1218,9 +1213,35 @@ public class StartPageFrame extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btnVisaValtUtbildningInlaggActionPerformed
 
-    private void bajsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajsActionPerformed
-        fyllUtbildningsListaMedInlagg();
-    }//GEN-LAST:event_bajsActionPerformed
+    private void btnUtbildningTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUtbildningTaBortActionPerformed
+               try{
+            String id = txfUtbildningID.getText();
+            int intId = Integer.parseInt(id);
+            SQLConnection.getDatabas().executeUpdate("delete from Utbildning where id =" + intId);  
+            
+            txfUtbildningForfattare.setText("");
+            txfUtbildningTitel.setText("");
+            txfUtbildningDatum.setText("");
+            txaUtbildningInlagg.setText("");
+            txfUtbildningFil.setText("");
+            txfUtbildningID.setText("");
+             
+            JOptionPane.showMessageDialog(this, "Inlägget är nu borttaget");
+            fyllUtbildningsListaMedInlagg();
+        }
+        catch(Exception e){
+           System.out.println(e.getMessage()); 
+        }
+    }//GEN-LAST:event_btnUtbildningTaBortActionPerformed
+
+    private void tblUtbildningMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUtbildningMouseClicked
+        txfUtbildningID.setText("");
+        txfUtbildningForfattare.setText("");
+        txfUtbildningTitel.setText("");
+        txfUtbildningDatum.setText("");
+        txaUtbildningInlagg.setText("");
+        txfUtbildningFil.setText("");
+    }//GEN-LAST:event_tblUtbildningMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1258,7 +1279,6 @@ public class StartPageFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bajs;
     private javax.swing.JButton btnBjudIn;
     private javax.swing.JButton btnForskningSkapaInlagg;
     private javax.swing.JButton btnForskningSpara;
