@@ -1118,8 +1118,11 @@ public class StartPageFrame extends javax.swing.JFrame {
         txfForskningDatum.setText(model.getValueAt(i, 3).toString());
         txaForskningInlagg.setText(model.getValueAt(i, 4).toString());
         txfForskningID.setText(model.getValueAt(i, 0).toString());
-        txfForskningFil.setText(model.getValueAt(i, 5).toString());
-        
+        if(model.getValueAt(i, 5) == null){
+        txfForskningFil.setText("Ingen bifogad fil finns");
+        }else{
+          txfForskningFil.setText(model.getValueAt(i, 5).toString());  
+        }
         String inlaggsId = txfForskningID.getText();
         int inlaggsIdInt = Integer.parseInt(inlaggsId);
         
@@ -1189,8 +1192,11 @@ public class StartPageFrame extends javax.swing.JFrame {
         txfUtbildningDatum.setText(model.getValueAt(i, 3).toString());
         txaUtbildningInlagg.setText(model.getValueAt(i, 4).toString());
         txfUtbildningID.setText(model.getValueAt(i, 0).toString());
+        if(model.getValueAt(i, 5) == null){
+          txfUtbildningFil.setText("Ingen bifogad fil finns");  
+        }else{
         txfUtbildningFil.setText(model.getValueAt(i, 5).toString());
-        
+        }
         String inlaggsId = txfUtbildningID.getText();
         int inlaggsIdInt = Integer.parseInt(inlaggsId);
         
@@ -1198,7 +1204,7 @@ public class StartPageFrame extends javax.swing.JFrame {
                                                                     "join Utbildning\n" +
                                                                     "on Forfattare = Anvandare.ID\n" +
                                                                     "where Utbildning.ID =" + inlaggsIdInt + "\n" +
-                                                                    "and Inloggad = 1;");  
+                                                                    "and Inloggad = 1;"); 
           
           if(rs.next()){
             btnUtbildningTaBort.setVisible(true);
