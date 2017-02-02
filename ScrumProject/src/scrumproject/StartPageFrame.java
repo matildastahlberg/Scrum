@@ -45,7 +45,7 @@ public class StartPageFrame extends javax.swing.JFrame {
             inlaggsaModell.setRowCount(0);
             
             String underkategori = cbUnderkategori.getSelectedItem().toString();
-            ResultSet rs = SQLConnection.getDatabas().executeQuery("select Anvandare.namn, titel, datum, text, filvag, Forskning.ID from Forskning \n" +
+            ResultSet rs = SQLConnection.getDatabas().executeQuery("select Forskning.ID, Anvandare.namn, titel, datum, text, filvag from Forskning \n" +
                     "join Anvandare on Anvandare.ID = Forskning.Forfattare\n" +
                     "join Underkategori on Underkategori.ID = Forskning.UnderkategoriID\n" +
                     "where  Underkategori.NAMN = '" + underkategori + "'\n" +
@@ -58,13 +58,13 @@ public class StartPageFrame extends javax.swing.JFrame {
             String filvag = "";
             String id = "";
             while(rs.next()) { 
-                namn = rs.getString(1);
-                titel = rs.getString(2);
-                datum = rs.getString(3);
-                text = rs.getString(4);
-                filvag = rs.getString(5);
-                id = rs.getString(6);
-                inlaggsaModell.insertRow(tblForskning.getRowCount(), new Object[] {namn, titel, datum, text, filvag, id});
+                id = rs.getString(1);
+                namn = rs.getString(2);
+                titel = rs.getString(3);
+                datum = rs.getString(4);
+                text = rs.getString(5);
+                filvag = rs.getString(6);
+                inlaggsaModell.insertRow(tblForskning.getRowCount(), new Object[] { id, namn, titel, datum, text, filvag});
             } 
         }
         catch(Exception e){
@@ -79,7 +79,7 @@ public class StartPageFrame extends javax.swing.JFrame {
             inlaggsaModell.setRowCount(0);
             
             String kategori = cbKategori.getSelectedItem().toString();
-            ResultSet rs = SQLConnection.getDatabas().executeQuery("select namn, titel, datum, text, filvag, FormelltInlagg.Id from FormelltInlagg join Anvandare on Anvandare.ID = FormelltInlagg.Forfattare where Kategori = '" + kategori + "'" + "Order by datum DESC");
+            ResultSet rs = SQLConnection.getDatabas().executeQuery("select FormelltInlagg.Id, namn, titel, datum, text, filvag from FormelltInlagg join Anvandare on Anvandare.ID = FormelltInlagg.Forfattare where Kategori = '" + kategori + "'" + "Order by datum DESC");
 
             String namn = "";
             String titel = "";
@@ -88,13 +88,42 @@ public class StartPageFrame extends javax.swing.JFrame {
             String filvag = "";
             String id = "";
             while(rs.next()) { 
-                namn = rs.getString(1);
-                titel = rs.getString(2);
-                datum = rs.getString(3);
-                text = rs.getString(4);
-                filvag = rs.getString(5);
-                id = rs.getString(6);
-                inlaggsaModell.insertRow(tbFormellaInlagg.getRowCount(), new Object[] {namn, titel, datum, text, filvag, id});
+                id = rs.getString(1);
+                namn = rs.getString(2);
+                titel = rs.getString(3);
+                datum = rs.getString(4);
+                text = rs.getString(5);
+                filvag = rs.getString(6);
+                inlaggsaModell.insertRow(tbFormellaInlagg.getRowCount(), new Object[] {id, namn, titel, datum, text, filvag});
+            } 
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
+        public void fyllUtbildningsListaMedInlagg(){
+        try{
+           DefaultTableModel inlaggsaModell = (DefaultTableModel) tblUtbildning.getModel();
+            inlaggsaModell.setRowCount(0);
+            
+            ResultSet rs = SQLConnection.getDatabas().executeQuery("select Utbildning.Id, namn, titel, datum, text, filvag from Utbildning join Anvandare on Anvandare.ID = Utbildning.Forfattare Order by datum DESC");
+
+            String namn = "";
+            String titel = "";
+            String datum = "";
+            String text = "";
+            String filvag = "";
+            String id = "";
+            while(rs.next()) { 
+                id = rs.getString(1);
+                namn = rs.getString(2);
+                titel = rs.getString(3);
+                datum = rs.getString(4);
+                text = rs.getString(5);
+                filvag = rs.getString(6);
+                inlaggsaModell.insertRow(tblUtbildning.getRowCount(), new Object[] {id, namn, titel, datum, text, filvag});
             } 
         }
         catch(Exception e){
@@ -177,7 +206,7 @@ public class StartPageFrame extends javax.swing.JFrame {
         btnForskningSpara = new javax.swing.JButton();
         pnlUtbildning = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblUtbildning = new javax.swing.JTable();
         btnUtbildningSkapaInlagg = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -186,14 +215,16 @@ public class StartPageFrame extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txaUtbildningInlagg = new javax.swing.JTextArea();
+        txfUtbildningID = new javax.swing.JTextField();
+        txfUtbildningForfattare = new javax.swing.JTextField();
+        txfUtbildningTitel = new javax.swing.JTextField();
+        txfUtbildningDatum = new javax.swing.JTextField();
+        txfUtbildningFil = new javax.swing.JTextField();
         btnUtbildningSpara = new javax.swing.JButton();
+        btnVisaValtUtbildningInlagg = new javax.swing.JButton();
         btnUtbildningTaBort = new javax.swing.JButton();
+        bajs = new javax.swing.JButton();
         pnlProfil = new javax.swing.JPanel();
         pnlKalender = new javax.swing.JPanel();
         pnlLoggaUt = new javax.swing.JPanel();
@@ -376,7 +407,7 @@ public class StartPageFrame extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Författare", "Titel", "Datum", "Inlägg", "Fil", "IDl"
+                "ID", "Författare", "Titel", "Datum", "Inlägg", "Fil"
             }
         ));
         tbFormellaInlagg.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -564,7 +595,7 @@ public class StartPageFrame extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Författare", "Titel", "Datum", "Inlägg", "Fil", "ID"
+                "ID", "Författare", "Titel", "Datum", "Inlägg", "Fil"
             }
         ));
         tblForskning.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -716,7 +747,7 @@ public class StartPageFrame extends javax.swing.JFrame {
 
         tbdpStart.addTab("Forskning", pnlForskning);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblUtbildning.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -735,10 +766,10 @@ public class StartPageFrame extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Författare", "Titel", "Datum", "Inlägg", "Fil", "ID"
+                "ID", "Författare", "Titel", "Datum", "Inlägg", "Fil"
             }
         ));
-        jScrollPane6.setViewportView(jTable1);
+        jScrollPane6.setViewportView(tblUtbildning);
 
         btnUtbildningSkapaInlagg.setText("Skapa inlägg");
         btnUtbildningSkapaInlagg.addActionListener(new java.awt.event.ActionListener() {
@@ -759,21 +790,21 @@ public class StartPageFrame extends javax.swing.JFrame {
 
         jLabel14.setText("Fil:");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane7.setViewportView(jTextArea1);
+        txaUtbildningInlagg.setEditable(false);
+        txaUtbildningInlagg.setColumns(20);
+        txaUtbildningInlagg.setLineWrap(true);
+        txaUtbildningInlagg.setRows(5);
+        jScrollPane7.setViewportView(txaUtbildningInlagg);
 
-        jTextField1.setEditable(false);
+        txfUtbildningID.setEditable(false);
 
-        jTextField3.setEditable(false);
+        txfUtbildningForfattare.setEditable(false);
 
-        jTextField4.setEditable(false);
+        txfUtbildningTitel.setEditable(false);
 
-        jTextField5.setEditable(false);
+        txfUtbildningDatum.setEditable(false);
 
-        jTextField6.setEditable(false);
+        txfUtbildningFil.setEditable(false);
 
         btnUtbildningSpara.setText("Spara");
         btnUtbildningSpara.addActionListener(new java.awt.event.ActionListener() {
@@ -782,10 +813,19 @@ public class StartPageFrame extends javax.swing.JFrame {
             }
         });
 
-        btnUtbildningTaBort.setText("Ta bort inlägg");
-        btnUtbildningTaBort.addActionListener(new java.awt.event.ActionListener() {
+        btnVisaValtUtbildningInlagg.setText("Visa valt inlägg");
+        btnVisaValtUtbildningInlagg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUtbildningTaBortActionPerformed(evt);
+                btnVisaValtUtbildningInlaggActionPerformed(evt);
+            }
+        });
+
+        btnUtbildningTaBort.setText("Ta bort inlägg");
+
+        bajs.setText("jButton3");
+        bajs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bajsActionPerformed(evt);
             }
         });
 
@@ -794,16 +834,24 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlUtbildningLayout.setHorizontalGroup(
             pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUtbildningLayout.createSequentialGroup()
-                .addComponent(btnUtbildningSkapaInlagg, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pnlUtbildningLayout.createSequentialGroup()
+                        .addComponent(btnUtbildningSkapaInlagg, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlUtbildningLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(bajs)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVisaValtUtbildningInlagg)))
                 .addGap(29, 29, 29)
                 .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnUtbildningTaBort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel13)
                     .addGroup(pnlUtbildningLayout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField6)
+                        .addComponent(txfUtbildningFil)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnUtbildningSpara))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
@@ -815,11 +863,10 @@ public class StartPageFrame extends javax.swing.JFrame {
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField1)))
-                    .addComponent(btnUtbildningTaBort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txfUtbildningDatum, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                            .addComponent(txfUtbildningTitel)
+                            .addComponent(txfUtbildningForfattare)
+                            .addComponent(txfUtbildningID))))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         pnlUtbildningLayout.setVerticalGroup(
@@ -828,19 +875,19 @@ public class StartPageFrame extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txfUtbildningID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txfUtbildningForfattare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txfUtbildningTitel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txfUtbildningDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -848,13 +895,16 @@ public class StartPageFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txfUtbildningFil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUtbildningSpara))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(btnUtbildningTaBort)
-                .addGap(97, 97, 97))
+                .addGap(87, 87, 87))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUtbildningLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVisaValtUtbildningInlagg)
+                    .addComponent(bajs))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUtbildningSkapaInlagg)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -988,12 +1038,13 @@ public class StartPageFrame extends javax.swing.JFrame {
                
         int i = tbFormellaInlagg.getSelectedRow();
         TableModel model = tbFormellaInlagg.getModel();
-        txfFormellForfattare.setText(model.getValueAt(i, 0).toString());
-        txfFormellTitel.setText(model.getValueAt(i, 1).toString());
-        txfFormellDatum.setText(model.getValueAt(i, 2).toString());
-        txaFormellInlagg.setText(model.getValueAt(i, 3).toString());
-        txfFormellFilvag.setText(model.getValueAt(i, 4).toString());
-        txfFormelltID.setText(model.getValueAt(i, 5).toString());
+        txfFormelltID.setText(model.getValueAt(i, 0).toString());
+        txfFormellForfattare.setText(model.getValueAt(i, 1).toString());
+        txfFormellTitel.setText(model.getValueAt(i, 2).toString());
+        txfFormellDatum.setText(model.getValueAt(i, 3).toString());
+        txaFormellInlagg.setText(model.getValueAt(i, 4).toString());
+        txfFormellFilvag.setText(model.getValueAt(i, 5).toString());
+
         
         String inlaggsId = txfFormelltID.getText();
         int inlaggsIdInt = Integer.parseInt(inlaggsId);
@@ -1040,6 +1091,8 @@ public class StartPageFrame extends javax.swing.JFrame {
     private void tbdpStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbdpStartMouseClicked
         btnTaBortFormelltInlagg.setVisible(false);
         btnForskningTabort.setVisible(false);
+        btnUtbildningTaBort.setVisible(false);
+        fyllUtbildningsListaMedInlagg();
     }//GEN-LAST:event_tbdpStartMouseClicked
 
     private void tbFormellaInlaggMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFormellaInlaggMouseClicked
@@ -1060,12 +1113,12 @@ public class StartPageFrame extends javax.swing.JFrame {
                
         int i = tblForskning.getSelectedRow();
         TableModel model = tblForskning.getModel();
-        txfForskningForfattare.setText(model.getValueAt(i, 0).toString());
-        txfForskningTitel.setText(model.getValueAt(i, 1).toString());
-        txfForskningDatum.setText(model.getValueAt(i, 2).toString());
-        txaForskningInlagg.setText(model.getValueAt(i, 3).toString());
-        txfForskningFil.setText(model.getValueAt(i, 4).toString());
-        txfForskningID.setText(model.getValueAt(i, 5).toString());
+        txfForskningForfattare.setText(model.getValueAt(i, 1).toString());
+        txfForskningTitel.setText(model.getValueAt(i, 2).toString());
+        txfForskningDatum.setText(model.getValueAt(i, 3).toString());
+        txaForskningInlagg.setText(model.getValueAt(i, 4).toString());
+        txfForskningID.setText(model.getValueAt(i, 0).toString());
+        txfForskningFil.setText(model.getValueAt(i, 5).toString());
         
         String inlaggsId = txfForskningID.getText();
         int inlaggsIdInt = Integer.parseInt(inlaggsId);
@@ -1126,9 +1179,42 @@ public class StartPageFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUtbildningSparaActionPerformed
 
-    private void btnUtbildningTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUtbildningTaBortActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUtbildningTaBortActionPerformed
+    private void btnVisaValtUtbildningInlaggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaValtUtbildningInlaggActionPerformed
+       try{
+               
+        int i = tblUtbildning.getSelectedRow();
+        TableModel model = tblUtbildning.getModel();
+        txfUtbildningForfattare.setText(model.getValueAt(i, 1).toString());
+        txfUtbildningTitel.setText(model.getValueAt(i, 2).toString());
+        txfUtbildningDatum.setText(model.getValueAt(i, 3).toString());
+        txaUtbildningInlagg.setText(model.getValueAt(i, 4).toString());
+        txfUtbildningID.setText(model.getValueAt(i, 0).toString());
+        txfUtbildningFil.setText(model.getValueAt(i, 5).toString());
+        
+        String inlaggsId = txfUtbildningID.getText();
+        int inlaggsIdInt = Integer.parseInt(inlaggsId);
+        
+          ResultSet rs = SQLConnection.getDatabas().executeQuery("select Anvandare.ID from Anvandare\n" +
+                                                                    "join Utbildning\n" +
+                                                                    "on Forfattare = Anvandare.ID\n" +
+                                                                    "where Utbildning.ID =" + inlaggsIdInt + "\n" +
+                                                                    "and Inloggad = 1;");  
+          
+          if(rs.next()){
+            btnUtbildningTaBort.setVisible(true);
+            }
+          else{
+              btnUtbildningTaBort.setVisible(false);
+            }     
+    }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+    }//GEN-LAST:event_btnVisaValtUtbildningInlaggActionPerformed
+
+    private void bajsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajsActionPerformed
+        fyllUtbildningsListaMedInlagg();
+    }//GEN-LAST:event_bajsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1166,6 +1252,7 @@ public class StartPageFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bajs;
     private javax.swing.JButton btnBjudIn;
     private javax.swing.JButton btnForskningSkapaInlagg;
     private javax.swing.JButton btnForskningSpara;
@@ -1181,6 +1268,7 @@ public class StartPageFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnUtbildningTaBort;
     private javax.swing.JButton btnVisaInlagg;
     private javax.swing.JButton btnVisaValtInlagg;
+    private javax.swing.JButton btnVisaValtUtbildningInlagg;
     private javax.swing.JComboBox<String> cbKategori;
     private javax.swing.JComboBox<String> cbUnderkategori;
     private javax.swing.JComboBox<String> cbxSvaraPaMoten;
@@ -1208,13 +1296,6 @@ public class StartPageFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lblForskningDatum;
     private javax.swing.JLabel lblForskningFil;
     private javax.swing.JLabel lblForskningForfattare;
@@ -1238,8 +1319,10 @@ public class StartPageFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tbdpStart;
     private javax.swing.JTable tblBjudInTillMote;
     private javax.swing.JTable tblForskning;
+    private javax.swing.JTable tblUtbildning;
     private javax.swing.JTextArea txaFormellInlagg;
     private javax.swing.JTextArea txaForskningInlagg;
+    private javax.swing.JTextArea txaUtbildningInlagg;
     private javax.swing.JTextField txfFormellDatum;
     private javax.swing.JTextField txfFormellFilvag;
     private javax.swing.JTextField txfFormellForfattare;
@@ -1252,5 +1335,10 @@ public class StartPageFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txfForskningTitel;
     private javax.swing.JTextField txfPlatsMoten;
     private javax.swing.JTextField txfTidMoten;
+    private javax.swing.JTextField txfUtbildningDatum;
+    private javax.swing.JTextField txfUtbildningFil;
+    private javax.swing.JTextField txfUtbildningForfattare;
+    private javax.swing.JTextField txfUtbildningID;
+    private javax.swing.JTextField txfUtbildningTitel;
     // End of variables declaration//GEN-END:variables
 }
