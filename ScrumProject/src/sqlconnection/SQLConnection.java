@@ -1,4 +1,5 @@
 
+ 
 
 package sqlconnection; 
 
@@ -20,7 +21,7 @@ public class SQLConnection {
         ResultSet rs = st.executeQuery("select * from Roll");
         while(rs.next()){
         int ID = rs.getInt(1);
-        String status = rs.getString(2);
+        String status = rs.getString(2); 
         System.out.println(ID + " " + status);
         
         }

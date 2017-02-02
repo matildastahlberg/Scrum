@@ -39,12 +39,12 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        lblFelInlogg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         TxfUserName.setToolTipText("");
 
-        PwfPassword.setText("jPasswordField1");
         PwfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PwfPasswordActionPerformed(evt);
@@ -67,6 +67,8 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Lösenord:");
 
+        lblFelInlogg.setForeground(new java.awt.Color(204, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,8 +88,9 @@ public class LoginFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(PwfPassword)
-                                    .addComponent(TxfUserName)))))
+                                    .addComponent(PwfPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                    .addComponent(TxfUserName)))
+                            .addComponent(lblFelInlogg)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(193, 193, 193)
                         .addComponent(BtnLogin)))
@@ -100,7 +103,9 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(39, 39, 39)
+                .addGap(12, 12, 12)
+                .addComponent(lblFelInlogg)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxfUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -110,7 +115,7 @@ public class LoginFrame extends javax.swing.JFrame {
                     .addComponent(PwfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(BtnLogin)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,6 +132,8 @@ setVisible(false);
        String LoginString = TxfUserName.getText().toString()+PwfPassword.getText().toString();
        try{
         if(Validator.LoginIsValid(LoginString)){
+            SQLConnection.getDatabas().executeUpdate("UPDATE Anvandare SET Inloggad = 0");//säkerhetsgrej för att endast en person ska vara inloggad
+            
             SQLConnection.getDatabas().executeUpdate("UPDATE Anvandare SET Inloggad = 1 WHERE AnvandarNamn = '" + TxfUserName.getText().toString() + "'");
 
             closeWindow();
@@ -135,14 +142,11 @@ setVisible(false);
             
         }
         else{
-            JOptionPane.showMessageDialog(null, "Inlogget är ej giltigt. Har du angett korrekt användarnamn och lösenord?");
+            lblFelInlogg.setText("Inlogget är ej giltigt. Har du angett korrekt användarnamn och lösenord?");
         }
         
-        if(Validator.itIsEmpty(TxfUserName)){}       
-        if(Validator.itIsEmpty(PwfPassword)){}
-        /**else{
-            System.out.println("Det finns ingen användare med det inlogget");
-        }*/
+        if(Validator.itIsEmpty(TxfUserName, lblFelInlogg)){}       
+        if(Validator.itIsEmpty(PwfPassword, lblFelInlogg)){}
        }
 catch(Exception  ex){
     System.out.println(ex);
@@ -193,5 +197,6 @@ catch(Exception  ex){
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblFelInlogg;
     // End of variables declaration//GEN-END:variables
 }
