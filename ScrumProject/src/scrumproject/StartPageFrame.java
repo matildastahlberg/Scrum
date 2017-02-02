@@ -41,9 +41,16 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlMoten = new javax.swing.JPanel();
         pnlForskning = new javax.swing.JPanel();
         pnlUtbildning = new javax.swing.JPanel();
-        pnlProfil = new javax.swing.JPanel();
         pnlLoggaUt = new javax.swing.JPanel();
         btnLogOut = new javax.swing.JButton();
+        pnlProfil = new javax.swing.JPanel();
+        lblProfilBild = new javax.swing.JLabel();
+        pnlProfilInfo = new javax.swing.JPanel();
+        lblProfilFornamn = new javax.swing.JLabel();
+        lblProfilEfternamn = new javax.swing.JLabel();
+        lblProfilTitel = new javax.swing.JLabel();
+        btnProfilRedigera = new javax.swing.JButton();
+        btnProfilSkickaMail = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,7 +80,7 @@ public class StartPageFrame extends javax.swing.JFrame {
                         .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnSkapaFormelltInlägg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlFormellBloggLayout.setVerticalGroup(
@@ -88,7 +95,7 @@ public class StartPageFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSkapaFormelltInlägg)
                         .addContainerGap())
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)))
         );
 
         tbdpStart.addTab("Formella bloggen", pnlFormellBlogg);
@@ -97,11 +104,11 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlInformellBlogg.setLayout(pnlInformellBloggLayout);
         pnlInformellBloggLayout.setHorizontalGroup(
             pnlInformellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGap(0, 804, Short.MAX_VALUE)
         );
         pnlInformellBloggLayout.setVerticalGroup(
             pnlInformellBloggLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 471, Short.MAX_VALUE)
         );
 
         tbdpStart.addTab("Informella bloggen", pnlInformellBlogg);
@@ -110,11 +117,11 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlMoten.setLayout(pnlMotenLayout);
         pnlMotenLayout.setHorizontalGroup(
             pnlMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGap(0, 804, Short.MAX_VALUE)
         );
         pnlMotenLayout.setVerticalGroup(
             pnlMotenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 471, Short.MAX_VALUE)
         );
 
         tbdpStart.addTab("Möten", pnlMoten);
@@ -123,11 +130,11 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlForskning.setLayout(pnlForskningLayout);
         pnlForskningLayout.setHorizontalGroup(
             pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGap(0, 804, Short.MAX_VALUE)
         );
         pnlForskningLayout.setVerticalGroup(
             pnlForskningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 471, Short.MAX_VALUE)
         );
 
         tbdpStart.addTab("Forskning", pnlForskning);
@@ -136,27 +143,14 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlUtbildning.setLayout(pnlUtbildningLayout);
         pnlUtbildningLayout.setHorizontalGroup(
             pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGap(0, 804, Short.MAX_VALUE)
         );
         pnlUtbildningLayout.setVerticalGroup(
             pnlUtbildningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 471, Short.MAX_VALUE)
         );
 
         tbdpStart.addTab("Utbildning", pnlUtbildning);
-
-        javax.swing.GroupLayout pnlProfilLayout = new javax.swing.GroupLayout(pnlProfil);
-        pnlProfil.setLayout(pnlProfilLayout);
-        pnlProfilLayout.setHorizontalGroup(
-            pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
-        );
-        pnlProfilLayout.setVerticalGroup(
-            pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
-        );
-
-        tbdpStart.addTab("Profil", pnlProfil);
 
         btnLogOut.setText("Logga ut");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -170,19 +164,86 @@ public class StartPageFrame extends javax.swing.JFrame {
         pnlLoggaUtLayout.setHorizontalGroup(
             pnlLoggaUtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoggaUtLayout.createSequentialGroup()
-                .addContainerGap(553, Short.MAX_VALUE)
+                .addContainerGap(680, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addGap(29, 29, 29))
         );
         pnlLoggaUtLayout.setVerticalGroup(
             pnlLoggaUtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoggaUtLayout.createSequentialGroup()
-                .addContainerGap(286, Short.MAX_VALUE)
+                .addContainerGap(426, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addContainerGap())
         );
 
         tbdpStart.addTab("Logga ut", pnlLoggaUt);
+
+        lblProfilBild.setText("Profilbild");
+
+        lblProfilFornamn.setText("Förnamn");
+
+        lblProfilEfternamn.setText("Efternamn");
+
+        lblProfilTitel.setText("Titel");
+
+        btnProfilRedigera.setText("Redigera profil");
+
+        btnProfilSkickaMail.setText("Skicka mail");
+        btnProfilSkickaMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfilSkickaMailActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlProfilInfoLayout = new javax.swing.GroupLayout(pnlProfilInfo);
+        pnlProfilInfo.setLayout(pnlProfilInfoLayout);
+        pnlProfilInfoLayout.setHorizontalGroup(
+            pnlProfilInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblProfilEfternamn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblProfilTitel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlProfilInfoLayout.createSequentialGroup()
+                .addGroup(pnlProfilInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblProfilFornamn, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProfilRedigera, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProfilSkickaMail, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 152, Short.MAX_VALUE))
+        );
+        pnlProfilInfoLayout.setVerticalGroup(
+            pnlProfilInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProfilInfoLayout.createSequentialGroup()
+                .addComponent(lblProfilFornamn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblProfilEfternamn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblProfilTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(btnProfilSkickaMail, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProfilRedigera, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout pnlProfilLayout = new javax.swing.GroupLayout(pnlProfil);
+        pnlProfil.setLayout(pnlProfilLayout);
+        pnlProfilLayout.setHorizontalGroup(
+            pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProfilLayout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addComponent(lblProfilBild, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(pnlProfilInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+        );
+        pnlProfilLayout.setVerticalGroup(
+            pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProfilLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblProfilBild, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlProfilInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+
+        tbdpStart.addTab("Profil", pnlProfil);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,9 +253,7 @@ public class StartPageFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tbdpStart, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 75, Short.MAX_VALUE))
+            .addComponent(tbdpStart)
         );
 
         pack();
@@ -212,6 +271,10 @@ public class StartPageFrame extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         } 
     }//GEN-LAST:event_btnLogOutActionPerformed
+
+    private void btnProfilSkickaMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfilSkickaMailActionPerformed
+       new MailFrame().setVisible(true);
+    }//GEN-LAST:event_btnProfilSkickaMailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,14 +309,24 @@ public class StartPageFrame extends javax.swing.JFrame {
                 new StartPageFrame().setVisible(true);
             }
         });
+        
+        
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnProfilRedigera;
+    private javax.swing.JButton btnProfilSkickaMail;
     private javax.swing.JButton btnSkapaFormelltInlägg;
     private javax.swing.JComboBox<String> cbKategori;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblProfilBild;
+    private javax.swing.JLabel lblProfilEfternamn;
+    private javax.swing.JLabel lblProfilFornamn;
+    private javax.swing.JLabel lblProfilTitel;
     private javax.swing.JLabel lblValjKategori;
     private javax.swing.JPanel pnlFormellBlogg;
     private javax.swing.JPanel pnlForskning;
@@ -261,6 +334,7 @@ public class StartPageFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlLoggaUt;
     private javax.swing.JPanel pnlMoten;
     private javax.swing.JPanel pnlProfil;
+    private javax.swing.JPanel pnlProfilInfo;
     private javax.swing.JPanel pnlUtbildning;
     private javax.swing.JTabbedPane tbdpStart;
     // End of variables declaration//GEN-END:variables
